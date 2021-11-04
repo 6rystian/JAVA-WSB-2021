@@ -28,4 +28,16 @@ public class Human {
             this.salary = sal;
         }
     }
+
+    void getCar()
+    {
+        System.out.println("Samochód (domniemanie) posiadany przez tego człowieka to: "+this.automobile.producer+" "+this.automobile.model);
+    }
+    void setCar(Car whip){
+        if (whip.value>(12*this.salary)) {System.out.println("Zapisz się na studia i znajdź nową robotę albo idź po podwyżkę. Samochód "+whip.producer+" "+whip.model+" nieprzypisany.");}
+        else{
+            if (whip.value>this.salary) {System.out.println("Udało się zakupić samochód na kredyt. Samochód "+whip.producer+" "+whip.model+" nieprzypisany."); this.automobile = whip;}
+            else {System.out.println("Udało się zakupić samochód gotówką. Samochód "+whip.producer+" "+whip.model+" nieprzypisany."); this.automobile = whip;}
+        }
+    }
 }

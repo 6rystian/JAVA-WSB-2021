@@ -6,6 +6,7 @@ public class Car {
     Integer age;
     private Double mileage;
     Boolean manualGear;
+    Double value;
 
     public Car(String producer, String model) {
         this.producer = producer;
@@ -21,4 +22,6 @@ public class Car {
     {
         return this.mileage;
     }
+
+
 }
