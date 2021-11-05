@@ -61,6 +61,9 @@ public class Main {
         if (mini.equals(mini2)==true) System.out.println("Podane samochody mają taką samą specyfikację.");
         if (mini.equals(fiat)==true) System.out.println("Podane samochody mają taką samą specyfikację.");
 
+        System.out.println(dog);
+        System.out.println(mini);
+        System.out.println(mini2);
     }
 
 
