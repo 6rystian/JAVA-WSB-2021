@@ -37,10 +37,8 @@ public class Main {
         marian.firstName = "Marian";
         marian.lastName = "Kowalski";
         marian.pet = dog;
-        marian.automobile = fiat;
 
         marian.pet.feed();
-        System.out.println(marian.automobile.model);
 
         marian.getSalary();
         marian.setSalary(-1);

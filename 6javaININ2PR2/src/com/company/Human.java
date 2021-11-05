@@ -10,7 +10,7 @@ public class Human {
     Integer age;
     Double weight;
     Animal pet;
-    Car automobile;
+    private Car automobile;
     private Double salary = 2800.0;
 
     void getSalary() {
@@ -31,7 +31,8 @@ public class Human {
 
     void getCar()
     {
-        System.out.println("Samochód (domniemanie) posiadany przez tego człowieka to: "+this.automobile.producer+" "+this.automobile.model);
+        if (this.automobile == null) {System.out.println("Ta osoba nie posiada samochodu (lub ukrywa ten fakt).");}
+        else {System.out.println("Samochód (domniemanie) posiadany przez tego człowieka to: "+this.automobile.producer+" "+this.automobile.model);}
     }
     void setCar(Car whip){
         if (whip.value>(12*this.salary)) {System.out.println("Zapisz się na studia i znajdź nową robotę albo idź po podwyżkę. Samochód "+whip.producer+" "+whip.model+" nieprzypisany.");}

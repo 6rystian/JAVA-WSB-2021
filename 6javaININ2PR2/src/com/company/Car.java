@@ -1,8 +1,7 @@
 package com.company;
 
-class Car {
-    // domyślnie package-private, IntelliJ nie zezwala na to, by ta klasa była prywatna
-    final String producer;
+public class Car {
+    String producer;
     final String model;
     Integer age;
     private Double mileage;
