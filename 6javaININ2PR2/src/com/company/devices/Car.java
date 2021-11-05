@@ -1,11 +1,11 @@
-package com.company;
+package com.company.devices;
 
 public class Car {
-    String producer;
-    final String model;
-    Integer age;
+    public String producer;
+    public final String model;
+    public Integer age;
     private Double mileage;
-    Double value;
+    public Double value;
 
     public Car(String producer, String model) {
         this.producer = producer;
@@ -17,11 +17,11 @@ public class Car {
         return "Producent i model: "+producer+ " " + model+"; wiek (w latach): "+age+"; przebieg (w km): "+mileage+"; wartość/cena (w zł): "+value;
     }
 
-    void drive(Double distance){
+    public void drive(Double distance){
         mileage += distance;
     }
 
-    Double getMileage()
+    public Double getMileage()
     {
         return this.mileage;
     }

@@ -1,6 +1,9 @@
 package com.company;
 
 // import java.time.ZonedDateTime;
+import com.company.devices.Car;
+import com.company.devices.Phone;
+
 import java.util.Date;
 
 
@@ -10,10 +13,11 @@ public class Human {
     Integer age;
     Animal pet;
     private Car automobile;
-    private Double salary = 2800.0;
+    Phone telephone;
+    private Double salary = 2800.00;
 
     public String toString() {
-        return "Imię i nazwisko: "+firstName+ " " +lastName+"; wiek (w latach): "+age+"; zwierzę domowe: ["+pet+"]; samochód: ["+automobile+"]";
+        return "Imię i nazwisko: "+firstName+ " " +lastName+"; wiek (w latach): "+age+"; zwierzę domowe: ["+pet+"]; telefon: ["+telephone+"]; samochód: ["+automobile+"]";
     }
 
     void getSalary() {

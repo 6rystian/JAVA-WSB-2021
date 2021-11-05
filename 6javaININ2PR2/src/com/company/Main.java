@@ -1,8 +1,13 @@
 package com.company;
+import com.company.devices.Car;
+import com.company.devices.Phone;
 
 public class Main {
 
     public static void main(String[] args) {
+        Phone samsung = new Phone ("Samsung", "Galaxy M22");
+        samsung.price = 999.00;
+
         Car fiat = new Car("Fiat", "Multipla");
         fiat.age = 17;
         fiat.value = 2500.00;
@@ -42,6 +47,7 @@ public class Main {
         marian.lastName = "Kowalski";
         marian.pet = dog;
         marian.age = 57;
+        marian.telephone=samsung;
 
         marian.pet.feed();
 
