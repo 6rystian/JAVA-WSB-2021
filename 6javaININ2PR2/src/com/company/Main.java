@@ -13,6 +13,11 @@ public class Main {
         mini.age=11;
         mini.value=20000.00;
 
+        Car mini2 = new Car("Mini", "Cooper");
+        mini2.age=11;
+        mini2.value=20000.00;
+
+
         Car lambo = new Car("Lamborghini", "Huracan");
         lambo.age=5;
         lambo.value=999999.99;
@@ -51,7 +56,18 @@ public class Main {
         marian.getCar();
         marian.setCar(fiat);
         marian.getCar();
+
+
+        if (mini.equals(mini2)==true) System.out.println("Podane samochody mają taką samą specyfikację.");
+        if (mini.equals(fiat)==true) System.out.println("Podane samochody mają taką samą specyfikację.");
+
     }
+
+
+
+
+
+
 
 
 }
