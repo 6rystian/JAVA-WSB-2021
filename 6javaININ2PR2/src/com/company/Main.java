@@ -7,7 +7,6 @@ public class Main {
         fiat.age = 17;
         fiat.value = 2500.00;
      //   fiat.mileage = 223790.1;
-        fiat.manualGear = true;
 
         Car mini = new Car("Mini", "Cooper");
         mini.age=11;
@@ -42,6 +41,7 @@ public class Main {
         marian.firstName = "Marian";
         marian.lastName = "Kowalski";
         marian.pet = dog;
+        marian.age = 57;
 
         marian.pet.feed();
 
@@ -64,6 +64,8 @@ public class Main {
         System.out.println(dog);
         System.out.println(mini);
         System.out.println(mini2);
+        System.out.println(fiat);
+        System.out.println(marian);
     }
 
 

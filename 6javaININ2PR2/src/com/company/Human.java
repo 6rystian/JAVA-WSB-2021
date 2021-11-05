@@ -8,10 +8,13 @@ public class Human {
     String firstName;
     String lastName;
     Integer age;
-    Double weight;
     Animal pet;
     private Car automobile;
     private Double salary = 2800.0;
+
+    public String toString() {
+        return "Imię i nazwisko: "+firstName+ " " +lastName+"; wiek (w latach): "+age+"; zwierzę domowe: ["+pet+"]; samochód: ["+automobile+"]";
+    }
 
     void getSalary() {
       //  System.out.println("Data i godzina: " + ZonedDateTime.now());

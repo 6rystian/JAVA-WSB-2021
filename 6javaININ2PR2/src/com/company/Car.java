@@ -5,13 +5,16 @@ public class Car {
     final String model;
     Integer age;
     private Double mileage;
-    Boolean manualGear;
     Double value;
 
     public Car(String producer, String model) {
         this.producer = producer;
         this.model = model;
         this.mileage=0.0;
+    }
+
+    public String toString() {
+        return "Producent i model: "+producer+ " " + model+"; wiek (w latach): "+age+"; przebieg (w km): "+mileage+"; wartość/cena (w zł): "+value;
     }
 
     void drive(Double distance){
@@ -49,12 +52,6 @@ public class Car {
             if (other.age != null)
                 return false;
         } else if (!age.equals(other.age))
-            return false;
-
-        if (manualGear == null) {
-            if (other.manualGear != null)
-                return false;
-        } else if (!manualGear.equals(other.manualGear))
             return false;
 
         if (value == null) {

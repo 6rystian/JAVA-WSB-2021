@@ -20,7 +20,11 @@ public class Animal {
         }
     }
 
-    void feed() {
+    public String toString() {
+        return "imię: "+name + "; gatunek: " + species;
+    }
+
+        void feed() {
         if (this.alive == false) {
             System.out.println("Martwego zwierzaka raczej nie wypycha się jedzeniem. Spróbuj z watą i drutami.");
         } else {
