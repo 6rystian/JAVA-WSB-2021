@@ -36,37 +36,9 @@ public class Car {
             return false;
         Car other = (Car) obj;
 
-        if (producer == null) {
-            if (other.producer != null)
-                return false;
-        } else if (!producer.equals(other.producer))
-            return false;
-
-        if (model == null) {
-            if (other.model != null)
-                return false;
-        } else if (!model.equals(other.model))
-            return false;
-
-        if (age == null) {
-            if (other.age != null)
-                return false;
-        } else if (!age.equals(other.age))
-            return false;
-
-        if (value == null) {
-            if (other.value != null)
-                return false;
-        } else if (!value.equals(other.value))
-            return false;
-
-        if (mileage == null) {
-            if (other.mileage != null)
-                return false;
-        } else if (!mileage.equals(other.mileage))
-            return false;
-
-        return true;
+        if (producer.equals(other.producer) && model.equals(other.model) && age.equals(other.age)&&value.equals(other.value)&&mileage.equals(other.mileage))
+            return true;
+        else return false;
 
     }
 
