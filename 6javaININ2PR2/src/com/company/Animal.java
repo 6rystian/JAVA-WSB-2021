@@ -4,7 +4,7 @@ public class Animal {
     String name;
     final String species;
     Integer age;
-    private Double weight;
+    Double weight;
     Boolean alive;
 
     Animal(String species) {
@@ -15,6 +15,8 @@ public class Animal {
             this.weight = 10.0;
         } else if (this.species == "felis") {
             this.weight = 2.0;
+        } else if (this.species == "homo sapiens") {
+            this.weight = 99.0;
         } else {
             this.weight = 1.0;
         }
@@ -29,7 +31,7 @@ public class Animal {
             System.out.println("Martwego zwierzaka raczej nie wypycha się jedzeniem. Spróbuj z watą i drutami.");
         } else {
             this.weight += 1;
-            System.out.println("Nowa waga zwierzęcia: " + this.weight + " kg.");
+            System.out.println("Nowa waga: " + this.weight + " kg.");
         }
     }
 

@@ -7,23 +7,34 @@ import com.company.devices.Phone;
 import java.util.Date;
 
 
-public class Human {
+public class Human extends Animal{
+    public static final String HUMAN_SPECIES = "homo sapiens";
+    public static final Double DEFAULT_SALARY = 1000.0;
+
     String firstName;
     String lastName;
     Integer age;
     Animal pet;
     private Car automobile;
     Phone telephone;
-    private Double salary = 2800.00;
+    private Double salary;
+    public Phone mobile;
+    public Double cash;
+
+    public Human(){
+        super(HUMAN_SPECIES);
+        this.salary = DEFAULT_SALARY;
+    }
 
     public String toString() {
         return "Imię i nazwisko: "+firstName+ " " +lastName+"; wiek (w latach): "+age+"; zwierzę domowe: ["+pet+"]; telefon: ["+telephone+"]; samochód: ["+automobile+"]";
     }
 
-    void getSalary() {
+    public Double getSalary() {
       //  System.out.println("Data i godzina: " + ZonedDateTime.now());
         System.out.println("Data i godzina: " + new Date());
         System.out.println("Wartość wypłaty: " + this.salary);
+        return this.salary;
     }
 
     void setSalary(double sal){

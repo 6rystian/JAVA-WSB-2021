@@ -1,20 +1,22 @@
 package com.company.devices;
 
-public class Car {
-    public String producer;
-    public final String model;
-    public Integer age;
+import com.company.Device;
+
+public class Car extends Device {
     private Double mileage;
     public Double value;
 
-    public Car(String producer, String model) {
-        this.producer = producer;
-        this.model = model;
+    public Car(String producer, String model, Integer yearOfProduction) {
+        super(producer, model, yearOfProduction);
         this.mileage=0.0;
     }
 
+    public void turnOn() {
+        System.out.println("przekręcam kluczyk");
+    }
+
     public String toString() {
-        return "Producent i model: "+producer+ " " + model+"; wiek (w latach): "+age+"; przebieg (w km): "+mileage+"; wartość/cena (w zł): "+value;
+        return "Producent i model: "+producer+ " " + model+"; rok produkcji: "+yearOfProduction+"; przebieg (w km): "+mileage+"; wartość/cena (w zł): "+value;
     }
 
     public void drive(Double distance){
@@ -36,7 +38,7 @@ public class Car {
             return false;
         Car other = (Car) obj;
 
-        if (producer.equals(other.producer) && model.equals(other.model) && age.equals(other.age)&&value.equals(other.value)&&mileage.equals(other.mileage))
+        if (producer.equals(other.producer) && model.equals(other.model) && yearOfProduction.equals(other.yearOfProduction)&&value.equals(other.value)&&mileage.equals(other.mileage))
             return true;
         else return false;
 
