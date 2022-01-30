@@ -1,13 +1,15 @@
 package com.company;
 
+import com.company.Saleable;
+
 public class Animal {
     String name;
-    final String species;
+    public final String species;
     Integer age;
     Double weight;
-    Boolean alive;
+    public Boolean alive;
 
-    Animal(String species) {
+    public Animal(String species) {
         this.species = species;
         this.alive = true;
 
@@ -21,6 +23,7 @@ public class Animal {
             this.weight = 1.0;
         }
     }
+
 
     public String toString() {
         return "imię: "+name + "; gatunek: " + species;
@@ -55,5 +58,6 @@ public class Animal {
         return output;
     }
 
+ //   sell(){}
 
 }
