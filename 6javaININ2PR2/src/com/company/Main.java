@@ -52,13 +52,15 @@ public class Main {
         marian.setSalary(-1);
         marian.setSalary(2801.4);
 
-        marian.getCar();
-        marian.setCar(lambo);
-        marian.getCar();
-        marian.setCar(mini);
-        marian.getCar();
-        marian.setCar(fiat);
-        marian.getCar();
+        marian.getCar(1);
+        marian.getCar(2);
+        marian.getCar(0);
+        marian.setCar(lambo, 1);
+        marian.setCar(mini, 2);
+        marian.setCar(fiat, 0);
+        marian.getCar(1); System.out.println(marian.getCar(0));
+        marian.getCar(2);
+        marian.getCar(0);
 
 
         if (mini.equals(mini2)==true) System.out.println("Podane samochody mają taką samą specyfikację.");
