@@ -44,7 +44,7 @@ public class Main {
         marian.lastName = "Kowalski";
         marian.pet = dog;
         marian.age = 57;
-        marian.telephone=samsung;
+        marian.mobile =samsung;
 
         marian.pet.feed();
 
@@ -75,10 +75,30 @@ public class Main {
         marian.feed();
         System.out.println(marian.weight);
 
-        marian.telephone.turnOn();
+        marian.mobile.turnOn();
         marian.automobile.turnOn();
-        //Device pralka = new Device("Bosch", "WAU2400PL", 2021);
+        System.out.println();System.out.println();System.out.println();
 
+        marian.cash = 0.0;
+
+        Human grzegorz = new Human();
+        grzegorz.firstName = "Grzegorz";
+        grzegorz.lastName = "Nowak";
+        grzegorz.age = 57;
+        grzegorz.cash = 650.0;
+
+        System.out.println(marian.firstName+" "+marian.getCarBool()+" "+marian.mobile +" "+marian.pet+" "+marian.cash);
+        System.out.println(grzegorz.firstName+" "+grzegorz.getCarBool()+" "+grzegorz.mobile +" "+grzegorz.pet+" "+grzegorz.cash);
+        System.out.println();System.out.println();System.out.println();
+        dog.sell(grzegorz, marian, 200.0);
+        samsung.sell(grzegorz, marian, 300.0);
+        fiat.sell(grzegorz, marian, 100.0);
+        marian.pet = grzegorz;
+        grzegorz.sell(grzegorz, marian, 25.0);
+
+        System.out.println();System.out.println();System.out.println();
+        System.out.println(marian.firstName+" "+marian.getCarBool()+" "+marian.mobile +" "+marian.pet+" "+marian.cash);
+        System.out.println(grzegorz.firstName+" "+grzegorz.getCarBool()+" "+grzegorz.mobile +" "+grzegorz.pet+" "+grzegorz.cash);
     }
 
 

@@ -16,9 +16,8 @@ public class Human extends Animal{
     Integer age;
     Animal pet;
     Car automobile;
-    Phone telephone;
-    private Double salary;
     public Phone mobile;
+    private Double salary;
     public Double cash;
 
     public Human(){
@@ -27,7 +26,7 @@ public class Human extends Animal{
     }
 
     public String toString() {
-        return "Imię i nazwisko: "+firstName+ " " +lastName+"; wiek (w latach): "+age+"; zwierzę domowe: ["+pet+"]; telefon: ["+telephone+"]; samochód: ["+automobile+"]";
+        return "Imię i nazwisko: "+firstName+ " " +lastName+"; wiek (w latach): "+age+"; zwierzę domowe: ["+pet+"]; telefon: ["+ mobile +"]; samochód: ["+automobile+"]";
     }
 
     public Double getSalary() {
@@ -47,16 +46,27 @@ public class Human extends Animal{
         }
     }
 
-    void getCar()
+    public void getCar()
     {
         if (this.automobile == null) {System.out.println("Ta osoba nie posiada samochodu (lub ukrywa ten fakt).");}
         else {System.out.println("Samochód (domniemanie) posiadany przez tego człowieka to: "+this.automobile.producer+" "+this.automobile.model);}
     }
-    void setCar(Car whip){
+    public boolean getCarBool()
+    {
+        if (this.automobile == null) return false;
+        else return true;
+    }
+
+    public void setCar(Car whip){
+        if (whip != null){
         if (whip.value>(12*this.salary)) {System.out.println("Zapisz się na studia i znajdź nową robotę albo idź po podwyżkę. Samochód "+whip.producer+" "+whip.model+" nieprzypisany.");}
         else{
             if (whip.value>this.salary) {System.out.println("Udało się zakupić samochód na kredyt. Samochód "+whip.producer+" "+whip.model+" nieprzypisany."); this.automobile = whip;}
             else {System.out.println("Udało się zakupić samochód gotówką. Samochód "+whip.producer+" "+whip.model+" nieprzypisany."); this.automobile = whip;}
-        }
+        }}
+    }
+    public void soldCar(Car whip)
+    {
+        this.automobile = whip;
     }
 }

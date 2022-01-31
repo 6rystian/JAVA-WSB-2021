@@ -1,6 +1,6 @@
 package com.company;
 
-public class Animal {
+public class Animal implements Saleable {
     String name;
     final String species;
     Integer age;
@@ -56,4 +56,23 @@ public class Animal {
     }
 
 
+    @Override
+    public void sell(Human buyer, Human seller, Double price) {
+        if (buyer.cash > price) {
+            if (seller.pet != null){
+                 if (seller.pet instanceof Human == false){
+
+                    buyer.cash -= price;
+                    seller.cash += price;
+                    buyer.pet = this;
+                    seller.pet = null;
+                    System.out.println("Transakcja została dokonana.");
+                }
+                else System.out.println("Handel ludźmi jest niedozwolony.");
+            }
+            else System.out.println("Sprzedający nie posiada zwierzaka na sprzedaż.");
+        } else {
+            System.out.println("Nie stać cię.");
+        }
+    }
 }

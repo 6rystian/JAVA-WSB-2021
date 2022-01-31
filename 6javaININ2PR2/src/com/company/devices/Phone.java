@@ -14,13 +14,18 @@ public class Phone extends Device implements Saleable {
 
     @Override
     public void sell(Human buyer, Human seller, Double price) {
-        if (buyer.getSalary() > price) {
+        if (buyer.cash > price) {
+            if (seller.mobile != null){
+
+                buyer.cash -= price;
+                seller.cash += price;
             buyer.mobile = this;
             seller.mobile = null;
-            seller.cash += price;
-            buyer.cash -= price;
+            System.out.println("Transakcja została dokonana.");
+            }
+            else System.out.println("Sprzedający nie posiada telefonu na sprzedaż.");
         } else {
-            System.out.println("nie stać cię");
+            System.out.println("Nie stać cię.");
         }
     }
 

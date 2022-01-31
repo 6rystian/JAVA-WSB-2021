@@ -1,5 +1,7 @@
 package com.company.devices;
 
+import com.company.Human;
+
 public class Car extends Device {
     private Double mileage;
     public Double value;
@@ -43,5 +45,20 @@ public class Car extends Device {
     }
 
 
+    @Override
+    public void sell(Human buyer, Human seller, Double price) {
+        if (buyer.cash > price) {
+            if (seller.getCarBool()==true) {
 
+                buyer.cash -= price;
+                seller.cash += price;
+                buyer.soldCar(this);
+                seller.soldCar(null);
+                System.out.println("Transakcja została dokonana.");
+
+            } else {System.out.println("Sprzedający nie posiada samochodu na sprzedaż.");}
+        } else {
+            System.out.println("Nie stać cię.");
+        }
+    }
 }
