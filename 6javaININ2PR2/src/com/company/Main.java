@@ -61,8 +61,8 @@ public class Main {
         marian.getCar();
 
 
-        if (mini.equals(mini2)==true) System.out.println("Podane samochody mają taką samą specyfikację.");
-        if (mini.equals(fiat)==true) System.out.println("Podane samochody mają taką samą specyfikację.");
+        if (mini.equals(mini2)) System.out.println("Podane samochody mają taką samą specyfikację.");
+        if (mini.equals(fiat)) System.out.println("Podane samochody mają taką samą specyfikację.");
 
         System.out.println(dog);
         System.out.println(mini);
@@ -75,6 +75,8 @@ public class Main {
         marian.feed();
         System.out.println(marian.weight);
 
+        marian.telephone.turnOn();
+        marian.automobile.turnOn();
         //Device pralka = new Device("Bosch", "WAU2400PL", 2021);
 
     }

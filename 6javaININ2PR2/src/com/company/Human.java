@@ -15,7 +15,7 @@ public class Human extends Animal{
     String lastName;
     Integer age;
     Animal pet;
-    private Car automobile;
+    Car automobile;
     Phone telephone;
     private Double salary;
     public Phone mobile;

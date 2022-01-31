@@ -1,7 +1,5 @@
 package com.company.devices;
 
-import com.company.Device;
-
 public class Car extends Device {
     private Double mileage;
     public Double value;
@@ -12,7 +10,7 @@ public class Car extends Device {
     }
 
     public void turnOn() {
-        System.out.println("przekręcam kluczyk");
+        System.out.println("Przekręcam kluczyk.");
     }
 
     public String toString() {

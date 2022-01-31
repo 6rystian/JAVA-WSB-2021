@@ -1,9 +1,10 @@
-package com.company;
+package com.company.devices;
 
 public abstract class Device {
     public final String producer;
     public final String model;
     public final Integer yearOfProduction;
+    public Boolean turnedOn;
 
     public Device(String producer, String model, Integer yearOfProduction) {
         this.producer=producer;
@@ -21,4 +22,5 @@ public abstract class Device {
     }
 
     abstract public void turnOn();
+
 }
