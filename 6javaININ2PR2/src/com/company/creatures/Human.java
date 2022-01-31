@@ -1,4 +1,4 @@
-package com.company;
+package com.company.creatures;
 
 // import java.time.ZonedDateTime;
 import com.company.devices.Car;
@@ -7,15 +7,15 @@ import com.company.devices.Phone;
 import java.util.Date;
 
 
-public class Human extends Animal{
+public class Human extends Animal {
     public static final String HUMAN_SPECIES = "homo sapiens";
     public static final Double DEFAULT_SALARY = 1000.0;
 
-    String firstName;
-    String lastName;
-    Integer age;
-    Animal pet;
-    Car automobile;
+    public String firstName;
+    public String lastName;
+    public Integer age;
+    public Pet pet;
+    public Car automobile;
     public Phone mobile;
     private Double salary;
     public Double cash;
@@ -36,7 +36,7 @@ public class Human extends Animal{
         return this.salary;
     }
 
-    void setSalary(double sal){
+    public void setSalary(double sal){
         if (sal<0){ System.out.println("Wypłata nie może mieć wartości ujemnej.");}
         else{
             System.out.println("Nowe dane zostały wysłane do systemu księgowego.");

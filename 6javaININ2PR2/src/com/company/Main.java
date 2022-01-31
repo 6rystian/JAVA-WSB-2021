@@ -1,4 +1,6 @@
 package com.company;
+import com.company.creatures.Human;
+import com.company.creatures.Pet;
 import com.company.devices.Car;
 import com.company.devices.Phone;
 
@@ -29,7 +31,7 @@ public class Main {
 
         System.out.println("Przebieg Fiata wynosi " + fiat.getMileage() + " km.");
 
-        Animal dog = new Animal("canis");
+        Pet dog = new Pet ("canis");
         dog.name = "Azor";
         System.out.println(dog.introduceYourself());
 
@@ -93,12 +95,19 @@ public class Main {
         dog.sell(grzegorz, marian, 200.0);
         samsung.sell(grzegorz, marian, 300.0);
         fiat.sell(grzegorz, marian, 100.0);
-        marian.pet = grzegorz;
+        // marian.pet = grzegorz;                (klasa Human nie może być klasą Pet - błąd kompilacji)
         grzegorz.sell(grzegorz, marian, 25.0);
 
         System.out.println();System.out.println();System.out.println();
         System.out.println(marian.firstName+" "+marian.getCarBool()+" "+marian.mobile +" "+marian.pet+" "+marian.cash);
         System.out.println(grzegorz.firstName+" "+grzegorz.getCarBool()+" "+grzegorz.mobile +" "+grzegorz.pet+" "+grzegorz.cash);
+
+        Pet piechu = new Pet ("canis");
+
+        piechu.name = "Reks";
+        System.out.println(piechu.weight);
+        piechu.feed(4.0);
+        System.out.println(piechu.weight);
     }
 
 
