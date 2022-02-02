@@ -1,8 +1,5 @@
 package com.company.creatures;
 
-import com.company.Saleable;
-import com.company.creatures.Human;
-
 public abstract class Animal implements Saleable, Feedable {
     public String name;
     public final String species;

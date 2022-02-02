@@ -61,4 +61,5 @@ public class Car extends Device {
             System.out.println("Nie stać cię.");
         }
     }
+
 }
