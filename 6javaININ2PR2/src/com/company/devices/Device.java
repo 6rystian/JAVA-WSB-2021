@@ -8,9 +8,9 @@ public abstract class Device implements Saleable {
     public final Integer yearOfProduction;
 
     public Device(String producer, String model, Integer yearOfProduction) {
-        this.producer=producer;
-        this.model=model;
-        this.yearOfProduction=yearOfProduction;
+        this.producer = producer;
+        this.model = model;
+        this.yearOfProduction = yearOfProduction;
     }
 
     @Override
@@ -23,7 +23,6 @@ public abstract class Device implements Saleable {
     }
 
     abstract public void turnOn();
-
 
 
 }

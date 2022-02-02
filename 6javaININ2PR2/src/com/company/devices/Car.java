@@ -10,7 +10,7 @@ public abstract class Car extends Device {
 
     public Car(String producer, String model, Integer yearOfProduction) {
         super(producer, model, yearOfProduction);
-        this.mileage=0.0;
+        this.mileage = 0.0;
     }
 
     public void turnOn() {
@@ -18,13 +18,12 @@ public abstract class Car extends Device {
     }
 
     public String toString() {
-        return "Producent i model: "+producer+ " " + model+"; rok produkcji: "+yearOfProduction+"; przebieg (w km): "+mileage+"; wartość/cena (w zł): "+value;
+        return "Producent i model: " + producer + " " + model + "; rok produkcji: " + yearOfProduction + "; przebieg (w km): " + mileage + "; wartość/cena (w zł): " + value;
     }
 
     public abstract void drive(Double distance);
 
-    public Double getMileage()
-    {
+    public Double getMileage() {
         return this.mileage;
     }
 
@@ -54,7 +53,9 @@ public abstract class Car extends Device {
                 seller.soldCar(null);
                 System.out.println("Transakcja została dokonana.");
 
-            } else {System.out.println("Sprzedający nie posiada samochodu na sprzedaż.");}
+            } else {
+                System.out.println("Sprzedający nie posiada samochodu na sprzedaż.");
+            }
         } else {
             System.out.println("Nie stać cię.");
         }

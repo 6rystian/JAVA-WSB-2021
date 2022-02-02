@@ -28,9 +28,8 @@ public abstract class Animal implements Saleable, Feedable {
     }
 
     public String toString() {
-        return "imię: "+name + "; gatunek: " + species;
+        return "imię: " + name + "; gatunek: " + species;
     }
-
 
 
     public void walk() {
@@ -57,16 +56,14 @@ public abstract class Animal implements Saleable, Feedable {
     @Override
     public void sell(Human buyer, Human seller, Double price) {
         if (buyer.cash > price) {
-            if (seller.pet != null){
+            if (seller.pet != null) {
 
-                    buyer.cash -= price;
-                    seller.cash += price;
-                    buyer.pet = seller.pet;
-                    seller.pet = null;
-                    System.out.println("Transakcja została dokonana.");
-                }
-
-            else System.out.println("Sprzedający nie posiada zwierzaka na sprzedaż.");
+                buyer.cash -= price;
+                seller.cash += price;
+                buyer.pet = seller.pet;
+                seller.pet = null;
+                System.out.println("Transakcja została dokonana.");
+            } else System.out.println("Sprzedający nie posiada zwierzaka na sprzedaż.");
         } else {
             System.out.println("Nie stać cię.");
         }
@@ -82,7 +79,7 @@ public abstract class Animal implements Saleable, Feedable {
         }
     }
 
-    public void feed(Double foodWeight){
+    public void feed(Double foodWeight) {
         if (this.alive) this.weight += foodWeight;
     }
 

@@ -2,6 +2,7 @@ package com.company.devices;
 
 import com.company.creatures.Human;
 import com.company.creatures.Saleable;
+
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
@@ -21,15 +22,14 @@ public class Phone extends Device implements Saleable {
     @Override
     public void sell(Human buyer, Human seller, Double price) {
         if (buyer.cash > price) {
-            if (seller.mobile != null){
+            if (seller.mobile != null) {
 
                 buyer.cash -= price;
                 seller.cash += price;
-            buyer.mobile = this;
-            seller.mobile = null;
-            System.out.println("Transakcja została dokonana.");
-            }
-            else System.out.println("Sprzedający nie posiada telefonu na sprzedaż.");
+                buyer.mobile = this;
+                seller.mobile = null;
+                System.out.println("Transakcja została dokonana.");
+            } else System.out.println("Sprzedający nie posiada telefonu na sprzedaż.");
         } else {
             System.out.println("Nie stać cię.");
         }
@@ -37,24 +37,24 @@ public class Phone extends Device implements Saleable {
 
 
     public String toString() {
-        return "Producent i model: "+producer+ " " + model+"; przekątna ekranu (w calach): "+screensize+"; system operacyjny: "+os+"; rok produkcji: "+year;
+        return "Producent i model: " + producer + " " + model + "; przekątna ekranu (w calach): " + screensize + "; system operacyjny: " + os + "; rok produkcji: " + year;
     }
 
     public void turnOn() {
         System.out.println("Przytrzymuję przycisk włączania.");
     }
 
-    public void installAnApp(String appName){
-        System.out.println("Instaluję aplikację "+appName);
+    public void installAnApp(String appName) {
+        System.out.println("Instaluję aplikację " + appName);
         this.installAnApp(appName, DEFAULT_VERSION_NAME);
     }
 
-    public void installAnApp(String appName, String version){
-        System.out.println("Instaluję aplikację "+appName);
+    public void installAnApp(String appName, String version) {
+        System.out.println("Instaluję aplikację " + appName);
         this.installAnApp(appName, version, DEFAULT_SERVER_NAME);
     }
 
-    public void installAnApp(String appName, String version, String server){
+    public void installAnApp(String appName, String version, String server) {
         URL url = null;
         try {
             url = new URL(DEFAULT_PROTOCOL_NAME, server, 443, appName + "-" + version);
@@ -65,13 +65,13 @@ public class Phone extends Device implements Saleable {
         this.installAnApp(url);
     }
 
-    public void installAnApp(List<String> appNames){
+    public void installAnApp(List<String> appNames) {
         for (String appName : appNames) {
             this.installAnApp(appName);
         }
     }
 
-    public void installAnApp(URL url){
+    public void installAnApp(URL url) {
         //logika - sprawdzić miejsce na telefonie, czy apka jest płatna, obsługa płatności, ...
         //...kontrola rodzicielska, obsługa błędów, pobranie, rozpakowanie, instalacja, dodanie ikony.
     }
