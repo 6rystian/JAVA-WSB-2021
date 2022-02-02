@@ -2,9 +2,11 @@ package com.company.devices;
 
 import com.company.creatures.Human;
 
-public class Car extends Device {
-    private Double mileage;
+public abstract class Car extends Device {
+    Double mileage;
     public Double value;
+    public Double fuelTankCapacity;
+    public Double fuel;
 
     public Car(String producer, String model, Integer yearOfProduction) {
         super(producer, model, yearOfProduction);
@@ -19,9 +21,7 @@ public class Car extends Device {
         return "Producent i model: "+producer+ " " + model+"; rok produkcji: "+yearOfProduction+"; przebieg (w km): "+mileage+"; wartość/cena (w zł): "+value;
     }
 
-    public void drive(Double distance){
-        mileage += distance;
-    }
+    public abstract void drive(Double distance);
 
     public Double getMileage()
     {
@@ -38,9 +38,7 @@ public class Car extends Device {
             return false;
         Car other = (Car) obj;
 
-        if (producer.equals(other.producer) && model.equals(other.model) && yearOfProduction.equals(other.yearOfProduction)&&value.equals(other.value)&&mileage.equals(other.mileage))
-            return true;
-        else return false;
+        return producer.equals(other.producer) && model.equals(other.model) && yearOfProduction.equals(other.yearOfProduction) && value.equals(other.value) && mileage.equals(other.mileage);
 
     }
 
@@ -48,7 +46,7 @@ public class Car extends Device {
     @Override
     public void sell(Human buyer, Human seller, Double price) {
         if (buyer.cash > price) {
-            if (seller.getCarBool()==true) {
+            if (seller.getCarBool()) {
 
                 buyer.cash -= price;
                 seller.cash += price;
@@ -62,4 +60,5 @@ public class Car extends Device {
         }
     }
 
+    public abstract void reFuel();
 }

@@ -1,8 +1,7 @@
 package com.company;
 import com.company.creatures.Human;
 import com.company.creatures.Pet;
-import com.company.devices.Car;
-import com.company.devices.Phone;
+import com.company.devices.*;
 
 public class Main {
 
@@ -11,21 +10,22 @@ public class Main {
         samsung.screensize = 5.6;
         samsung.os = "Android 9";
 
-        Car fiat = new Car("Fiat", "Multipla", 2005);
+        Diesel fiat = new Diesel("Fiat", "Multipla", 2005);
         fiat.value = 2500.00;
      //   fiat.mileage = 223790.1;
 
-        Car mini = new Car("Mini", "Cooper", 2010);
+        Diesel mini = new Diesel("Mini", "Cooper", 2010);
         mini.value=20000.00;
 
-        Car mini2 = new Car("Mini", "Cooper", 2010);
+        Diesel mini2 = new Diesel("Mini", "Cooper", 2010);
         mini2.value=20000.00;
 
 
-        Car lambo = new Car("Lamborghini", "Huracan", 2019);
-        lambo.value=999999.99;
+        Electric tesla = new Electric("Tesla", "S", 2014);
+        tesla.value=160000.00;
 
-        Car polonez = new Car("FSO", "Polonez", 1999);
+        LPG opel = new LPG("Opel", "Astra", 1996);
+        opel.value=1600.00;
 
         fiat.drive(12.3);
 
@@ -33,6 +33,7 @@ public class Main {
 
         Pet dog = new Pet ("canis");
         dog.name = "Azor";
+        dog.age = 5;
         System.out.println(dog.introduceYourself());
 
         dog.feed();
@@ -55,7 +56,7 @@ public class Main {
         marian.setSalary(2801.4);
 
         marian.getCar();
-        marian.setCar(lambo);
+        marian.setCar(tesla);
         marian.getCar();
         marian.setCar(mini);
         marian.getCar();
@@ -107,17 +108,15 @@ public class Main {
         piechu.name = "Reks";
         System.out.println(piechu.weight);
         piechu.feed(4.0);
-        System.out.println(piechu.weight);
-    }
+        System.out.println(piechu.weight);System.out.println();System.out.println();System.out.println();System.out.println();
 
 
-
-
-
-
-
-
-}
+        System.out.println(mini2.fuel+" "+mini2.getMileage());
+        mini2.drive(1.0);
+        mini2.reFuel();
+        mini2.drive(1.0);
+        System.out.println(mini2.fuel+" "+mini2.getMileage());
+    }}
 
 //ctrl+alt+L - formatowanie tekstu
 //ctrl+D - kopiowanie linii
