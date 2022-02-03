@@ -41,25 +41,42 @@ public abstract class Car extends Device {
 
     }
 
+    public int hasThisCar(Human sellingPerson) {
+        for (int i = 0; i < sellingPerson.garage.length; i++) {
+            if (sellingPerson.garage[i] == this) return i;
+        }
+        return -1;
+    }
+
+    public int hasEmptyGarageSpace(Human buyingPerson) {
+        for (int i = 0; i < buyingPerson.garage.length; i++) {
+            if (buyingPerson.garage[i] == null) return i;
+        }
+        return -1;
+    }
+
 
     @Override
     public void sell(Human buyer, Human seller, Double price) {
-        if (buyer.cash > price) {
-            if (seller.getCarBool()) {
-
-                buyer.cash -= price;
-                seller.cash += price;
-                buyer.soldCar(this);
-                seller.soldCar(null);
-                System.out.println("Transakcja została dokonana.");
-
-            } else {
-                System.out.println("Sprzedający nie posiada samochodu na sprzedaż.");
-            }
-        } else {
-            System.out.println("Nie stać cię.");
+        if (this.hasThisCar(seller) == -1) {
+            System.out.println("Sprzedawca nie posiada tego samochodu w garażu.");
+            return;
         }
+        if (this.hasEmptyGarageSpace(buyer) == -1) {
+            System.out.println("Kupujący nie posiada miejsca w garażu.");
+            return;
+        }
+        if (price > buyer.cash) {
+            System.out.println("Kupujący nie posiada wystarczającej ilości gotówki.");
+            return;
+        }
+        buyer.soldCar(hasEmptyGarageSpace(buyer), this);
+        seller.soldCar(hasThisCar(seller), null);
+        buyer.cash -= price;
+        seller.cash += price;
+        System.out.println("Transakcja została dokonana.");
     }
+
 
     public abstract void reFuel();
 }

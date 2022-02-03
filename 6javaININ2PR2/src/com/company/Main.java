@@ -65,13 +65,16 @@ public class Main {
         marian.setSalary(-1);
         marian.setSalary(2801.4);
 
-        marian.getCar();
-        marian.setCar(tesla);
-        marian.getCar();
-        marian.setCar(mini);
-        marian.getCar();
-        marian.setCar(fiat);
-        marian.getCar();
+        marian.getCar(1);
+        marian.getCar(2);
+        marian.getCar(0);
+        marian.setCar(tesla, 1);
+        marian.setCar(mini, 2);
+        marian.setCar(fiat, 0);
+        marian.getCar(1);
+        System.out.println(marian.getCar(0));
+        marian.getCar(2);
+        marian.getCar(0);
 
 
         if (mini.equals(mini2)) System.out.println("Podane samochody mają taką samą specyfikację.");
@@ -89,7 +92,7 @@ public class Main {
         System.out.println(marian.weight);
 
         marian.mobile.turnOn();
-        marian.automobile.turnOn();
+        marian.getCar(0).turnOn();
         System.out.println();
         System.out.println();
         System.out.println();
@@ -102,22 +105,22 @@ public class Main {
         grzegorz.age = 57;
         grzegorz.cash = 650.0;
 
-        System.out.println(marian.firstName + " " + marian.getCarBool() + " " + marian.mobile + " " + marian.pet + " " + marian.cash);
-        System.out.println(grzegorz.firstName + " " + grzegorz.getCarBool() + " " + grzegorz.mobile + " " + grzegorz.pet + " " + grzegorz.cash);
+        System.out.println(marian.firstName + " " + marian.getCarBool(0) + " " + marian.getCarBool(1) + " " + marian.getCarBool(2) + " " + marian.mobile + " " + marian.pet + " " + marian.cash);
+        System.out.println(grzegorz.firstName + " " + grzegorz.getCarBool(0) + " " + grzegorz.getCarBool(1) + " " + grzegorz.getCarBool(2) + " " + grzegorz.mobile + " " + grzegorz.pet + " " + grzegorz.cash);
         System.out.println();
         System.out.println();
         System.out.println();
-        dog.sell(grzegorz, marian, 200.0);
-        samsung.sell(grzegorz, marian, 300.0);
-        fiat.sell(grzegorz, marian, 100.0);
+        //       dog.sell(grzegorz, marian, 200.0);
+        //   samsung.sell(grzegorz, marian, 300.0);
+        //   fiat.sell(grzegorz, marian, 100.0);
         // marian.pet = grzegorz;                (klasa Human nie może być klasą Pet - błąd kompilacji)
-        grzegorz.sell(grzegorz, marian, 25.0);
+        //   grzegorz.sell(grzegorz, marian, 25.0);
 
         System.out.println();
         System.out.println();
         System.out.println();
-        System.out.println(marian.firstName + " " + marian.getCarBool() + " " + marian.mobile + " " + marian.pet + " " + marian.cash);
-        System.out.println(grzegorz.firstName + " " + grzegorz.getCarBool() + " " + grzegorz.mobile + " " + grzegorz.pet + " " + grzegorz.cash);
+        System.out.println(marian.firstName + " " + marian.getCarBool(0) + " " + marian.getCarBool(1) + " " + marian.getCarBool(2) + " " + marian.mobile + " " + marian.pet + " " + marian.cash);
+        System.out.println(grzegorz.firstName + " " + grzegorz.getCarBool(0) + " " + grzegorz.getCarBool(1) + " " + grzegorz.getCarBool(2) + " " + grzegorz.mobile + " " + grzegorz.pet + " " + grzegorz.cash);
 
         Pet piechu = new Pet("canis");
 
@@ -136,7 +139,42 @@ public class Main {
         mini2.reFuel();
         mini2.drive(1.0);
         System.out.println(mini2.fuel + " " + mini2.getMileage());
+
+        marian.getGarageValue();
+
+        Human pietras = new Human(5);
+        pietras.cash = 1000000.0;
+        pietras.setSalary(1000000.0);
+        pietras.setCar(tesla, 1);
+        pietras.setCar(mini, 3);
+        pietras.setCar(fiat, 0);
+        pietras.setCar(opel, 4);
+
+        for (int i = 1; i <= pietras.garage.length; i++) {
+            pietras.getCarDescription(i);
+        }
+
+        pietras.sortGarage();
+        System.out.println();
+        for (int i = 1; i <= pietras.garage.length; i++) {
+            pietras.getCarDescription(i);
+        }
+        marian.setCar(opel, 1);
+        System.out.println();
+        System.out.println();
+
+        mini2.sell(marian, pietras, 15000.0);
+        pietras.setCar(mini2, 4);
+        mini2.sell(marian, pietras, 15000.0);
+        marian.soldCar(1, null);
+        mini2.sell(marian, pietras, 15000.0);
+        marian.cash += 15001.0;
+        mini2.sell(marian, pietras, 15000.0);
+
+
     }
+
+
 }
 
 //ctrl+alt+L - formatowanie tekstu

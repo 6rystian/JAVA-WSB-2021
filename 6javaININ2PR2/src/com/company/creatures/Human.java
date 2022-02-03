@@ -11,12 +11,13 @@ import java.util.Date;
 public class Human extends Animal {
     public static final String HUMAN_SPECIES = "homo sapiens";
     public static final Double DEFAULT_SALARY = 1000.0;
+    private static final int DEFAULT_GARAGE_SIZE = 3;
 
     public String firstName;
     public String lastName;
     public Integer age;
     public Pet pet;
-    public Car automobile;
+    public Car[] garage;
     public Phone mobile;
     private Double salary;
     public Double cash;
@@ -24,10 +25,17 @@ public class Human extends Animal {
     public Human() {
         super(HUMAN_SPECIES);
         this.salary = DEFAULT_SALARY;
+        this.garage = new Car[DEFAULT_GARAGE_SIZE];
+    }
+
+    public Human(Integer garageSize) {
+        super(HUMAN_SPECIES);
+        this.salary = DEFAULT_SALARY;
+        this.garage = new Car[garageSize];
     }
 
     public String toString() {
-        return "Imię i nazwisko: " + firstName + " " + lastName + "; wiek (w latach): " + age + "; zwierzę domowe: [" + pet + "]; telefon: [" + mobile + "]; samochód: [" + automobile + "]";
+        return "Imię i nazwisko: " + firstName + " " + lastName + "; wiek (w latach): " + age + "; zwierzę domowe: [" + pet + "]; telefon: [" + mobile + "]; samochody: [" + garage + "]";
     }
 
     public Double getSalary() {
@@ -48,36 +56,92 @@ public class Human extends Animal {
         }
     }
 
-    public void getCar() {
-        if (this.automobile == null) {
-            System.out.println("Ta osoba nie posiada samochodu (lub ukrywa ten fakt).");
-        } else {
-            System.out.println("Samochód (domniemanie) posiadany przez tego człowieka to: " + this.automobile.producer + " " + this.automobile.model);
-        }
-    }
 
-    public boolean getCarBool() {
-        if (this.automobile == null) return false;
+    public boolean getCarBool(Integer parkingLotNumber) {
+        if (this.getCar(parkingLotNumber) == null) return false;
         else return true;
     }
 
-    public void setCar(Car whip) {
-        if (whip != null) {
-            if (whip.value > (12 * this.salary)) {
-                System.out.println("Zapisz się na studia i znajdź nową robotę albo idź po podwyżkę. Samochód " + whip.producer + " " + whip.model + " nieprzypisany.");
-            } else {
-                if (whip.value > this.salary) {
-                    System.out.println("Udało się zakupić samochód na kredyt. Samochód " + whip.producer + " " + whip.model + " nieprzypisany.");
-                    this.automobile = whip;
-                } else {
-                    System.out.println("Udało się zakupić samochód gotówką. Samochód " + whip.producer + " " + whip.model + " nieprzypisany.");
-                    this.automobile = whip;
-                }
-            }
+    public boolean isNotNull(Object obj) {
+        if (obj == null)
+            return false;
+        else return true;
+    }
+
+    public void getCarDescription(Integer parkingLotNumber) {
+        if (this.garage[parkingLotNumber - 1] == null) {
+            System.out.println("Samochód na miejscu parkingowym " + parkingLotNumber + ": brak");
+        } else {
+            System.out.println("Samochód na miejscu parkingowym " + parkingLotNumber + ": " + this.garage[parkingLotNumber - 1].producer + " " + this.garage[parkingLotNumber - 1].model + " " + this.garage[parkingLotNumber - 1].yearOfProduction);
+        }
+    }
+//    void setCar(Car whip){
+    //      if (whip.value>(12*this.salary)) {System.out.println("Zapisz się na studia i znajdź nową robotę albo idź po podwyżkę. Samochód "+whip.producer+" "+whip.model+" nieprzypisany.");}
+    //       else{
+    //           if (whip.value>this.salary) {System.out.println("Udało się zakupić samochód na kredyt. Samochód "+whip.producer+" "+whip.model+" nieprzypisany."); this.automobile = whip;}
+    //           else {System.out.println("Udało się zakupić samochód gotówką. Samochód "+whip.producer+" "+whip.model+" nieprzypisany."); this.automobile = whip;}
+    //       }
+    //   }
+
+    public void setCar(Car newCar, Integer parkingLotNumber) {
+        if (this.salary > newCar.value) {
+            this.garage[parkingLotNumber] = newCar;
+            System.out.println("Kupiony za gotówkę, gratulacje!");
+        } else if (this.salary > newCar.value / 12) {
+            this.garage[parkingLotNumber] = newCar;
+            System.out.println("Kupiony na raty.");
+        } else {
+            System.out.println("Nie ma hajsu...");
+            System.out.println("...nie ma samochodu.");
         }
     }
 
-    public void soldCar(Car whip) {
-        this.automobile = whip;
+    public Car getCar(Integer parkingLotNumber) {
+        return this.garage[parkingLotNumber];
     }
+
+    public Double getGarageValue() {
+        Double x = 0.0;
+        if (isNotNull(this.garage) == false) return x;
+
+        for (int i = 0; i < this.garage.length; i++) {
+            if (isNotNull(this.garage[i]) == true) x += this.garage[i].value;
+
+
+        }
+        return x;
+    }
+
+    public void sortGarage() {
+        Car swapper;
+        Integer emptyGarageSpaces = 0;
+        for (int i = 0; i < this.garage.length - emptyGarageSpaces; i++) {
+            if (isNotNull(this.garage[i]) == false) {
+                swapper = this.garage[i];
+                this.garage[i] = this.garage[this.garage.length - 1 - emptyGarageSpaces];
+                this.garage[this.garage.length - 1 - emptyGarageSpaces] = swapper;
+                emptyGarageSpaces += 1;
+                i -= 1;
+            }
+        }
+        Integer x = 0;
+        do {
+            x = 0;
+            for (int i = 0; i < (this.garage.length - 1 - emptyGarageSpaces); i++) {
+                if (this.garage[i].yearOfProduction > this.garage[i + 1].yearOfProduction) {
+                    swapper = this.garage[i];
+                    this.garage[i] = this.garage[i + 1];
+                    this.garage[i + 1] = swapper;
+                    x += 1;
+                }
+            }
+
+        } while (x > 0);
+    }
+
+    public void soldCar(Integer parkingLotNumber, Car whip) {
+        this.garage[parkingLotNumber] = whip;
+    }
+
+
 }
