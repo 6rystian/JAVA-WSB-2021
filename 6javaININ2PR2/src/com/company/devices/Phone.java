@@ -5,6 +5,7 @@ import com.company.creatures.Saleable;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.HashSet;
 import java.util.List;
 
 public class Phone extends Device implements Saleable {
@@ -14,6 +15,7 @@ public class Phone extends Device implements Saleable {
     public Double screensize;
     public String os;
     public Integer year;
+    HashSet<Application> appGroup = new HashSet<>();
 
     public Phone(String producer, String model, Integer yearOfProduction) {
         super(producer, model, yearOfProduction);
@@ -74,6 +76,14 @@ public class Phone extends Device implements Saleable {
     public void installAnApp(URL url) {
         //logika - sprawdzić miejsce na telefonie, czy apka jest płatna, obsługa płatności, ...
         //...kontrola rodzicielska, obsługa błędów, pobranie, rozpakowanie, instalacja, dodanie ikony.
+    }
+
+    public void appInstallation (Human phoneOwner, Application app)
+    {
+        if (phoneOwner.cash<app.price) {System.out.println("Osoba nie posiada wystarczającej ilości pieniędzy potrzebnych do zakupu aplikacji.");return;}
+        appGroup.add(app);
+        phoneOwner.cash-=app.price;
+        System.out.println("Aplikacja "+app.appName+" zakupiona i zainstalowana.");
     }
 
 }

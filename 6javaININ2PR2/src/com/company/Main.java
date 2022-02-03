@@ -176,7 +176,14 @@ public class Main {
         mini2.transactionCheck(marian, pietras);
         mini2.transactionCheck(pietras, marian);
         mini2.transactionCount();
-System.out.println();
+        System.out.println();System.out.println();
+
+        Application amogus = new Application("Among Us", "2021.12.15", 0.00);
+        Application fls = new Application("FL Studio Mobile", "3.6.19", 80.99);
+        marian.mobile.appInstallation(marian, amogus);
+        marian.mobile.appInstallation(marian, fls);
+
+        System.out.println();System.out.println();
 
     }
 
