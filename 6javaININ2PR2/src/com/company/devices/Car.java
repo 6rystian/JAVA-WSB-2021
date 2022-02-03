@@ -2,11 +2,14 @@ package com.company.devices;
 
 import com.company.creatures.Human;
 
+import java.util.ArrayList;
+
 public abstract class Car extends Device {
     Double mileage;
     public Double value;
     public Double fuelTankCapacity;
     public Double fuel;
+    public ArrayList owners = new ArrayList();
 
     public Car(String producer, String model, Integer yearOfProduction) {
         super(producer, model, yearOfProduction);
@@ -62,6 +65,10 @@ public abstract class Car extends Device {
             System.out.println("Sprzedawca nie posiada tego samochodu w garażu.");
             return;
         }
+        if (this.wasAnOwner(seller)==false) {
+            System.out.println("Sprzedawca nie jest wpisany jako ostatni właściciel tego pojazdu.");
+            return;
+        }
         if (this.hasEmptyGarageSpace(buyer) == -1) {
             System.out.println("Kupujący nie posiada miejsca w garażu.");
             return;
@@ -74,9 +81,34 @@ public abstract class Car extends Device {
         seller.soldCar(hasThisCar(seller), null);
         buyer.cash -= price;
         seller.cash += price;
+        this.owners.add(buyer);
         System.out.println("Transakcja została dokonana.");
     }
 
-
     public abstract void reFuel();
+
+    public boolean wasAnOwner(Human holder)
+    {
+        if (this.owners.size()==0) return false;
+        for (int i=0;i<this.owners.size();i++)
+        {
+            if (this.owners.get(i)==holder) return true;
+        }
+        return false;
+    }
+
+    public void transactionCheck (Human buyer, Human seller){
+        if (this.owners.size()<2) {System.out.println("Nie, człowiek podany jako sprzedawca nie sprzedał tego samochodu człowiekowi podanemu jako kupujący.");return;}
+        for (int i=0;i<this.owners.size()-1;i++)
+        {
+            if (this.owners.get(i)==seller && this.owners.get(i+1)==buyer) {System.out.println("Tak, człowiek podany jako sprzedawca sprzedał ten samochód człowiekowi podanemu jako kupujący.");return;}
+        }
+        System.out.println("Nie, człowiek podany jako sprzedawca nie sprzedał tego samochodu człowiekowi podanemu jako kupujący.");
+    }
+
+    public void transactionCount()
+    {
+        if (this.owners.size()<2) {System.out.println("Ilość transakcji sprzedaży podanego samochodu: 0.");return;}
+        else System.out.println("Ilość transakcji sprzedaży podanego samochodu: "+ (this.owners.size()-1)+".");
+    }
 }

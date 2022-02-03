@@ -165,12 +165,18 @@ public class Main {
 
         mini2.sell(marian, pietras, 15000.0);
         pietras.setCar(mini2, 4);
+        mini2.owners.clear();
+        mini2.sell(marian, pietras, 15000.0);
+        pietras.setCar(mini2, 4);
         mini2.sell(marian, pietras, 15000.0);
         marian.soldCar(1, null);
         mini2.sell(marian, pietras, 15000.0);
         marian.cash += 15001.0;
         mini2.sell(marian, pietras, 15000.0);
-
+        mini2.transactionCheck(marian, pietras);
+        mini2.transactionCheck(pietras, marian);
+        mini2.transactionCount();
+System.out.println();
 
     }
 

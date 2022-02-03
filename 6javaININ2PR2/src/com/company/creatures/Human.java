@@ -83,16 +83,20 @@ public class Human extends Animal {
     //       }
     //   }
 
+
     public void setCar(Car newCar, Integer parkingLotNumber) {
         if (this.salary > newCar.value) {
             this.garage[parkingLotNumber] = newCar;
-            System.out.println("Kupiony za gotówkę, gratulacje!");
+        //    System.out.println("Kupiony za gotówkę, gratulacje!");
+            newCar.owners.add(this);
         } else if (this.salary > newCar.value / 12) {
             this.garage[parkingLotNumber] = newCar;
-            System.out.println("Kupiony na raty.");
+       //     System.out.println("Kupiony na raty.");
+            newCar.owners.add(this);
         } else {
-            System.out.println("Nie ma hajsu...");
-            System.out.println("...nie ma samochodu.");
+      //      System.out.println("Nie ma hajsu...");
+      //      System.out.println("...nie ma samochodu.");
+
         }
     }
 
